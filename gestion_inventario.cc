@@ -12,11 +12,21 @@ void RetirarStock(int *stock, int cantidad);
 
 int main ()
 {
+   
     Stock stock;
-
+  
     stock.stock = 50;
 
+    std::cout << "Cantidad inicial:" << std::endl;
+    ConsultarStock(stock.stock);
+
     IngresarStock (stock.stock, stock.cantidad );
+  
+    ConsultarStock(stock.stock);
+    
+    RetirarStock(&stock.stock);
+  
+    ConsultarStock(stock.stock);
     return 0;
 }
 
@@ -36,6 +46,14 @@ void IngresarStock(int &stock, int cantidad)
         stock += cantidad;
     }
 }
+
+void ConsultarStock(int stock)
+{
+    std::cout << "Cantidad actual: " << stock  << std::endl;
+
+}
+
+
 void RetirarStock(int *stock, int cantidad){
 
     std::cout << "Ingrese la cantidad de unidades que desea retirar: ";

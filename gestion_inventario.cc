@@ -12,20 +12,20 @@ void RetirarStock(int *stock, int cantidad);
 
 int main ()
 {
-   
+
     Stock stock;
-  
+
     stock.stock = 50;
 
     std::cout << "Cantidad inicial:" << std::endl;
     ConsultarStock(stock.stock);
 
     IngresarStock (stock.stock, stock.cantidad );
-  
+
     ConsultarStock(stock.stock);
     
-    RetirarStock(&stock.stock);
-  
+    RetirarStock(&stock.stock, stock.cantidad);
+
     ConsultarStock(stock.stock);
     return 0;
 }

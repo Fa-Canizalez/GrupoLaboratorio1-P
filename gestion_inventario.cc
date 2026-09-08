@@ -1,35 +1,51 @@
 #include <iostream>
 
 struct Stock
+{
+    int stock;
+    int cantidad;
+};
+
+// Declaración de funciones
+void IngresarStock(int &stock, int cantidad);
 void RetirarStock(int *stock, int cantidad);
 
 int main ()
 {
-    int cantidad_stock;
-};
-
-
-void ConsultarStock(int carga);
-
-
-int main()
-{
+   
     Stock stock;
-    stock.cantidad_stock = 50;
+  
+    stock.stock = 50;
 
     std::cout << "Cantidad inicial:" << std::endl;
-    ConsultarStock(stock.cantidad_stock);
+    ConsultarStock(stock.stock);
 
-   
-
+    IngresarStock (stock.stock, stock.cantidad );
+  
+    ConsultarStock(stock.stock);
     
-     ConsultarStock(stock.cantidad_stock);
-
-   
-
+    RetirarStock(&stock.stock);
+  
+    ConsultarStock(stock.stock);
     return 0;
 }
 
+void IngresarStock(int &stock, int cantidad)
+{
+
+    std::cout << "\nCantidad de stock a ingresar: ";
+    std::cin >> cantidad;
+    
+    if (cantidad < 0 )
+    {
+        std::cout << "\nCantidad a ingresar invalida..." << std::endl;
+    }
+    else
+    {
+        std::cout << "\nCantidad ingresada exitosamente...Aumentando el stock" << std::endl;
+        stock += cantidad;
+    }
+}
 
 void ConsultarStock(int stock)
 {
